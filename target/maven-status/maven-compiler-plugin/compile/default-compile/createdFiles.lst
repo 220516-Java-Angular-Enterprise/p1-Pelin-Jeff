@@ -1,0 +1,8 @@
+com\revature\ers\dtos\requests\NewUserRequest.class
+com\revature\ers\util\annotations\Inject.class
+com\revature\ers\util\custom_exceptions\InvalidSQLException.class
+com\revature\ers\util\custom_exceptions\ResourceConflictException.class
+com\revature\ers\util\custom_exceptions\InvalidRequestException.class
+com\revature\ers\util\custom_exceptions\InvalidUserException.class
+com\revature\ers\servlets\UserServlet.class
+com\revature\ers\util\database\ContextLoaderListener.class
