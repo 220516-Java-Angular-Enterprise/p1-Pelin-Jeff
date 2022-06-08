@@ -1,6 +1,6 @@
 package com.revature.ers.models;
 
-public class Reimbursements {
+public class Reimbursement {
     private String id;
     private int amount;
     private int submitted;
@@ -13,9 +13,9 @@ public class Reimbursements {
     private String statusID;
     private String typeId;
 
-    public Reimbursements() { super(); }
+    public Reimbursement() { super(); }
 
-    public Reimbursements(String id, int amount, int submitted, int resolved, String description,
+    public Reimbursement(String id, int amount, int submitted, int resolved, String description,
                           int receipt, String paymentId, String authorID, String resolverID, String statusID, String typeId) {
         this.id = id;
         this.amount = amount;
@@ -120,7 +120,7 @@ public class Reimbursements {
 
     @Override
     public String toString() {
-        return "Reimbursements{" +
+        return "Reimbursement{" +
                 "id='" + id + '\'' +
                 ", amount=" + amount +
                 ", submitted=" + submitted +

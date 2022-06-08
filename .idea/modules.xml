@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/ers-servlet.iml" filepath="$PROJECT_DIR$/ers-servlet.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/p1-Pelin-Jeff.iml" filepath="$PROJECT_DIR$/.idea/p1-Pelin-Jeff.iml" />
     </modules>
   </component>

@@ -1,5 +1,7 @@
 package com.revature.ers.util;
 
+
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.ers.daos.UserDAO;
 import com.revature.ers.services.UserService;
@@ -10,7 +12,7 @@ import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
 /* Need this ContextLoaderListener for our dependency injection upon deployment. */
-public class ContextLoaderListener implements ServletContextListener {
+public class ContextLoaderListener implements ServletContextListener { //this is to map servlet and models. mapping dependency injection. Used to authenticate when user logsin or sign up
     @Override
     public void contextInitialized(ServletContextEvent sce) {
         System.out.println("\nInitializing ERS web application");

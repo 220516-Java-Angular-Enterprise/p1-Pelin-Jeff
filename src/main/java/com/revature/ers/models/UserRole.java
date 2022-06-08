@@ -1,13 +1,13 @@
 package com.revature.ers.models;
 
-public class UserRoles {
+public class UserRole {
 
     private String id;
     private String role;
 
-    public UserRoles() { super(); }
+    public UserRole() { super(); }
 
-    public UserRoles(String id, String role) {
+    public UserRole(String id, String role) {
         this.id = id;
         this.role = role;
     }
@@ -30,7 +30,7 @@ public class UserRoles {
 
     @Override
     public String toString() {
-        return "UserRoles{" +
+        return "UserRole{" +
                 "id='" + id + '\'' +
                 ", role='" + role + '\'' +
                 '}';

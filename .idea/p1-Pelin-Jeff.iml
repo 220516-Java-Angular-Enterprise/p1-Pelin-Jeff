@@ -5,7 +5,15 @@
     <output-test url="file://$MODULE_DIR$/target/test-classes" />
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
+<<<<<<< HEAD
+<<<<<<< HEAD
       <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
+=======
+>>>>>>> 370852cf3f2497592faba8ed76f395b3e47de66f
+=======
+      <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
+>>>>>>> 0c6474782351c6b4eeacc839e4fc6e18b47cd7be
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
     <orderEntry type="inheritedJdk" />
