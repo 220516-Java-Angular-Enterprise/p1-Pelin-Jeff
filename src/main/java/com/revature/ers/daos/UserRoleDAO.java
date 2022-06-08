@@ -1,4 +1,4 @@
 package com.revature.ers.daos;
 
-public class UserRolesDAO {
+public class UserRoleDAO {
 }

@@ -5,6 +5,6 @@
          version="3.1">
 
     <listener>
-        <listener-class>com.revature.yolp.util.ContextLoaderListener</listener-class>
+        <listener-class>com.revature.ers.util.ContextLoaderListener</listener-class>
     </listener>
 </web-app>
