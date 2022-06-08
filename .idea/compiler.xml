@@ -7,9 +7,11 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="p1-Pelin-Jeff" />
+        <module name="ers-servlet" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="ers-servlet" target="1.8" />
       <module name="p1-Pelin-Jeff" target="1.8" />
     </bytecodeTargetLevel>
   </component>
