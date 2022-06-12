@@ -5,14 +5,7 @@ Project 1 by Pelin and Jeff
 
 ## Project Description
 
-For the foundations module of your training you are tasked with building an API that will 
-support a new internal expense reimbursement system. This system will manage the process of 
-reimbursing employees for expenses incurred while on company time. This system will work closely 
-with the internal PRISM application - which is used for processing payments to employees. All 
-registered employees in the company can login and submit requests for reimbursement and view their 
-past tickets and pending requests. Finance managers can log in and view all reimbursement requests 
-and past history for all employees in the company. Finance managers are authorized to approve and 
-deny requests for expense reimbursement.
+For the foundations module of your training you are tasked with building an API that will support a new internal expense reimbursement system. This system will manage the process of reimbursing employees for expenses incurred while on company time. All registered employees in the company can login and submit requests for reimbursement and view their past tickets and pending requests. Finance managers can log in and view all reimbursement requests and past history for all employees in the company. Finance managers are authorized to approve and deny requests for expense reimbursement.
 
 ### Project Design Specifications and Documents
 
@@ -50,21 +43,19 @@ ERS%20State%20Flow%20Diagram.png)
 
 ### Functional Requirements
 
-- The system will register itself with the 3rd-party PRISM application
-- An new employee or new finance manager can request registration with the system
-- An admin user can approve or deny new registration requests
-- The system will register the user's information with the PRISM application for payment processing
-- A registered employee can authenticate with the system by providing valid credentials
-- An authenticated employee can view and manage their pending reimbursement requests
-- An authenticated employee can view their reimbursement request history (sortable and filterable)
-- An authenticated employee can submit a new reimbursement request
-- An authenticated finance manager can view a list of all pending reimbursement requests
-- An authenticated finance manager can view a history of requests that they have approved/denied
-- An authenticated finance manager can approve/deny reimbursement requests
-- The system will send a payment request to PRISM when a reimbursement request is approved
-- An admin user can deactivate user accounts, making them unable to log into the system
-- An admin user can reset a registered user's password
-
+An new employee or new finance manager can request registration with the system
+An admin user can approve or deny new registration requests
+The system will register the user's information for payment processing
+A registered employee can authenticate with the system by providing valid credentials
+An authenticated employee can view and manage their pending reimbursement requests
+An authenticated employee can view their reimbursement request history (sortable and filterable)
+An authenticated employee can submit a new reimbursement request
+An authenticated finance manager can view a list of all pending reimbursement requests
+An authenticated finance manager can view a history of requests that they have approved/denied
+An authenticated finance manager can approve/deny reimbursement requests
+The system will send a payment request when a reimbursement request is approved
+An admin user can deactivate user accounts, making them unable to log into the system
+An admin user can reset a registered user's password
 ### Non-Functional Requirements
 
 - Basic validation is enforced to ensure that invalid/improper data is not persisted
