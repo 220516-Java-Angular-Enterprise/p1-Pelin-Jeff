@@ -4,7 +4,9 @@ package com.revature.ers.util;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.ers.daos.UserDAO;
+import com.revature.ers.services.TokenService;
 import com.revature.ers.services.UserService;
+import com.revature.ers.servlets.AuthServlet;
 import com.revature.ers.servlets.UserServlet;
 
 import javax.servlet.ServletContext;
@@ -21,7 +23,8 @@ public class ContextLoaderListener implements ServletContextListener { //this is
         ObjectMapper mapper = new ObjectMapper();
 
         /* Dependency injection. */
-        UserServlet userServlet = new UserServlet(mapper, new UserService(new UserDAO()));
+        UserServlet userServlet = new UserServlet(mapper, new UserService(new UserDAO()), new TokenService(new JwtConfig()));
+        AuthServlet authServlet = new AuthServlet(mapper, new UserService(new UserDAO()), new TokenService(new JwtConfig()));
 
         /* Need ServletContext class to map whatever servlet to url path. */
         ServletContext context = sce.getServletContext();

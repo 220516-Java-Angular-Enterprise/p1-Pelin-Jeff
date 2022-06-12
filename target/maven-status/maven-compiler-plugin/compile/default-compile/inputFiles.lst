@@ -1,6 +1,6 @@
 C:\Users\13608\Desktop\Revature\P1\p1-Pelin-Jeff\src\main\java\com\revature\ers\services\ReimbursementService.java
 C:\Users\13608\Desktop\Revature\P1\p1-Pelin-Jeff\src\main\java\com\revature\ers\services\UserService.java
-C:\Users\13608\Desktop\Revature\P1\p1-Pelin-Jeff\src\main\java\com\revature\ers\util\database\DatabaseConnection.java
+C:\Users\13608\Desktop\Revature\P1\p1-Pelin-Jeff\src\main\java\com\revature\ers\dtos\requests\ReimbursementRequest.java
 C:\Users\13608\Desktop\Revature\P1\p1-Pelin-Jeff\src\main\java\com\revature\ers\models\ReimbursementType.java
 C:\Users\13608\Desktop\Revature\P1\p1-Pelin-Jeff\src\main\java\com\revature\ers\util\annotations\Inject.java
 C:\Users\13608\Desktop\Revature\P1\p1-Pelin-Jeff\src\main\java\com\revature\ers\util\custom_exceptions\InvalidRequestException.java
@@ -8,12 +8,17 @@ C:\Users\13608\Desktop\Revature\P1\p1-Pelin-Jeff\src\main\java\com\revature\ers\
 C:\Users\13608\Desktop\Revature\P1\p1-Pelin-Jeff\src\main\java\com\revature\ers\dtos\requests\NewUserRequest.java
 C:\Users\13608\Desktop\Revature\P1\p1-Pelin-Jeff\src\main\java\com\revature\ers\models\User.java
 C:\Users\13608\Desktop\Revature\P1\p1-Pelin-Jeff\src\main\java\com\revature\ers\models\UserRole.java
+C:\Users\13608\Desktop\Revature\P1\p1-Pelin-Jeff\src\main\java\com\revature\ers\util\JwtConfig.java
+C:\Users\13608\Desktop\Revature\P1\p1-Pelin-Jeff\src\main\java\com\revature\ers\dtos\requests\LoginRequest.java
 C:\Users\13608\Desktop\Revature\P1\p1-Pelin-Jeff\src\main\java\com\revature\ers\util\custom_exceptions\InvalidSQLException.java
 C:\Users\13608\Desktop\Revature\P1\p1-Pelin-Jeff\src\main\java\com\revature\ers\services\ReimbursementTypeService.java
 C:\Users\13608\Desktop\Revature\P1\p1-Pelin-Jeff\src\main\java\com\revature\ers\daos\ReimbursementDAO.java
+C:\Users\13608\Desktop\Revature\P1\p1-Pelin-Jeff\src\main\java\com\revature\ers\servlets\AuthServlet.java
 C:\Users\13608\Desktop\Revature\P1\p1-Pelin-Jeff\src\main\java\com\revature\ers\daos\ReimbursementTypeDAO.java
 C:\Users\13608\Desktop\Revature\P1\p1-Pelin-Jeff\src\main\java\com\revature\ers\util\custom_exceptions\InvalidUserException.java
+C:\Users\13608\Desktop\Revature\P1\p1-Pelin-Jeff\src\main\java\com\revature\ers\Main.java
 C:\Users\13608\Desktop\Revature\P1\p1-Pelin-Jeff\src\main\java\com\revature\ers\util\custom_exceptions\ResourceConflictException.java
+C:\Users\13608\Desktop\Revature\P1\p1-Pelin-Jeff\src\main\java\com\revature\ers\util\custom_exceptions\AuthenticationException.java
 C:\Users\13608\Desktop\Revature\P1\p1-Pelin-Jeff\src\main\java\com\revature\ers\util\ContextLoaderListener.java
 C:\Users\13608\Desktop\Revature\P1\p1-Pelin-Jeff\src\main\java\com\revature\ers\daos\CrudDAO.java
 C:\Users\13608\Desktop\Revature\P1\p1-Pelin-Jeff\src\main\java\com\revature\ers\daos\UserDAO.java
@@ -21,5 +26,9 @@ C:\Users\13608\Desktop\Revature\P1\p1-Pelin-Jeff\src\main\java\com\revature\ers\
 C:\Users\13608\Desktop\Revature\P1\p1-Pelin-Jeff\src\main\java\com\revature\ers\servlets\UserServlet.java
 C:\Users\13608\Desktop\Revature\P1\p1-Pelin-Jeff\src\main\java\com\revature\ers\services\ReimbursementStatusService.java
 C:\Users\13608\Desktop\Revature\P1\p1-Pelin-Jeff\src\main\java\com\revature\ers\daos\UserRoleDAO.java
+C:\Users\13608\Desktop\Revature\P1\p1-Pelin-Jeff\src\main\java\com\revature\ers\util\database\ConnectionFactory.java
 C:\Users\13608\Desktop\Revature\P1\p1-Pelin-Jeff\src\main\java\com\revature\ers\models\Reimbursement.java
+C:\Users\13608\Desktop\Revature\P1\p1-Pelin-Jeff\src\main\java\com\revature\ers\dtos\requests\NewFinanceManagerRequest.java
+C:\Users\13608\Desktop\Revature\P1\p1-Pelin-Jeff\src\main\java\com\revature\ers\dtos\responses\Principal.java
 C:\Users\13608\Desktop\Revature\P1\p1-Pelin-Jeff\src\main\java\com\revature\ers\models\ReimbursementStatus.java
+C:\Users\13608\Desktop\Revature\P1\p1-Pelin-Jeff\src\main\java\com\revature\ers\services\TokenService.java

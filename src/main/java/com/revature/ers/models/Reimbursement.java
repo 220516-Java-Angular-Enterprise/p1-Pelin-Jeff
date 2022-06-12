@@ -1,33 +1,34 @@
 package com.revature.ers.models;
+import java.util.Date;
 
 public class Reimbursement {
     private String id;
     private int amount;
-    private int submitted;
-    private int resolved;
+    private Date submitted;
+    private Date resolved;
     private String description;
-    private int receipt;
-    private String paymentId;
+    private byte receipt;
+    private String paymentID;
     private String authorID;
     private String resolverID;
     private String statusID;
-    private String typeId;
+    private String typeID;
 
     public Reimbursement() { super(); }
 
-    public Reimbursement(String id, int amount, int submitted, int resolved, String description,
-                          int receipt, String paymentId, String authorID, String resolverID, String statusID, String typeId) {
+    public Reimbursement(String id, int amount, Date submitted, Date resolved, String description,
+                          byte receipt, String paymentID, String authorID, String resolverID, String statusID, String typeID) {
         this.id = id;
         this.amount = amount;
         this.submitted = submitted;
         this.resolved = resolved;
         this.description = description;
         this.receipt = receipt;
-        this.paymentId = paymentId;
+        this.paymentID = paymentID;
         this.authorID = authorID;
         this.resolverID = resolverID;
         this.statusID = statusID;
-        this.typeId = typeId;
+        this.typeID = typeID;
     }
 
     public String getId() {
@@ -46,19 +47,19 @@ public class Reimbursement {
         this.amount = amount;
     }
 
-    public int getSubmitted() {
+    public Date getSubmitted() {
         return submitted;
     }
 
-    public void setSubmitted(int submitted) {
+    public void setSubmitted(Date submitted) {
         this.submitted = submitted;
     }
 
-    public int getResolved() {
+    public Date getResolved() {
         return resolved;
     }
 
-    public void setResolved(int resolved) {
+    public void setResolved(Date resolved) {
         this.resolved = resolved;
     }
 
@@ -70,20 +71,20 @@ public class Reimbursement {
         this.description = description;
     }
 
-    public int getReceipt() {
+    public byte getReceipt() {
         return receipt;
     }
 
-    public void setReceipt(int receipt) {
+    public void setReceipt(byte receipt) {
         this.receipt = receipt;
     }
 
-    public String getPaymentId() {
-        return paymentId;
+    public String getPaymentID() {
+        return paymentID;
     }
 
-    public void setPaymentId(String paymentId) {
-        this.paymentId = paymentId;
+    public void setPaymentID(String paymentId) {
+        this.paymentID = paymentID;
     }
 
     public String getAuthorID() {
@@ -110,12 +111,12 @@ public class Reimbursement {
         this.statusID = statusID;
     }
 
-    public String getTypeId() {
-        return typeId;
+    public String getTypeID() {
+        return typeID;
     }
 
-    public void setTypeId(String typeId) {
-        this.typeId = typeId;
+    public void setTypeID(String typeID) {
+        this.typeID = typeID;
     }
 
     @Override
@@ -127,11 +128,11 @@ public class Reimbursement {
                 ", resolved=" + resolved +
                 ", description='" + description + '\'' +
                 ", receipt=" + receipt +
-                ", paymentId='" + paymentId + '\'' +
+                ", paymentID='" + paymentID + '\'' +
                 ", authorID='" + authorID + '\'' +
                 ", resolverID='" + resolverID + '\'' +
                 ", statusID='" + statusID + '\'' +
-                ", typeId='" + typeId + '\'' +
+                ", typeID='" + typeID + '\'' +
                 '}';
     }
 }

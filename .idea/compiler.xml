@@ -6,7 +6,6 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="p1-Pelin-Jeff" />
         <module name="ers-servlet" />
       </profile>
     </annotationProcessing>
