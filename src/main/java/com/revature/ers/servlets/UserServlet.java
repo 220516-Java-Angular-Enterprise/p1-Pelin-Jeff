@@ -1,45 +1,48 @@
 package com.revature.ers.servlets;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.revature.ers.dtos.requests.NewUserRequest;
-import com.revature.ers.models.User;
-import com.revature.ers.services.UserService;
-import com.revature.ers.util.annotations.Inject;
-import com.revature.ers.util.custom_exceptions.InvalidRequestException;
-import com.revature.ers.util.custom_exceptions.ResourceConflictException;
-
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import java.io.FileReader;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.Properties;
 
-public class UserServlet extends HttpServlet {
-    @Inject
-    private final ObjectMapper mapper;
-    private final UserService userService;
+public class ConnectionFactory {
+    private static ConnectionFactory connectionFactory;
 
-    @Inject
-    public UserServlet(ObjectMapper mapper, UserService userService) {
-        this.mapper = mapper;
-        this.userService = userService;
+    static {
+        try {
+            Class.forName("org.postgresql.Driver");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {  //template to post in database
+    private Properties props = new Properties();
+
+    private ConnectionFactory() {
         try {
-            NewUserRequest request = mapper.readValue(req.getInputStream(), NewUserRequest.class);
-            User createdUser = userService.register(request);
-            resp.setStatus(201); // CREATED
-            resp.setContentType("application/json");
-            resp.getWriter().write(mapper.writeValueAsString(createdUser.getId()));
-        } catch (InvalidRequestException e) {
-            resp.setStatus(404); // BAD REQUEST
-        } catch (ResourceConflictException e) {
-            resp.setStatus(409); // RESOURCE CONFLICT
-        } catch (Exception e) {
+            props.load(new FileReader("src/main/resources/db.properties"));
+        } catch (IOException e) {
             e.printStackTrace();
-            resp.setStatus(500);
         }
+    }
+
+    public static ConnectionFactory getInstance() {
+        if (connectionFactory == null) {
+            connectionFactory = new ConnectionFactory();
+        }
+        return connectionFactory;
+    }
+
+    public Connection getConnection() throws SQLException {
+
+        Connection conn = DriverManager.getConnection(props.getProperty("url"), props.getProperty("username"), props.getProperty("password"));
+
+        if (conn == null) {
+            throw new RuntimeException("Could not establish connection with the database!");
+        }
+
+        return conn;
     }
 }

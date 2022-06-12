@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 /* Notice that this class is a Singleton design pattern. */
-public class DatabaseConnection {
+public class ConnectionFactory {
     /* instantiating Connection object */
     private static Connection con;
 

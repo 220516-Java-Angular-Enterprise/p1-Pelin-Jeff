@@ -1,9 +1,8 @@
 package com.revature.ers.daos;
 
 import com.revature.ers.models.User;
-import com.revature.ers.util.database.DatabaseConnection;
+import com.revature.ers.util.database.ConnectionFactory;
 
-import java.io.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -12,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserDAO implements CrudDAO<User> {
-    Connection con = DatabaseConnection.getCon();
+    Connection con = ConnectionFactory.getCon();
     String path = "src/main/resources/database/user.txt";
 
     @Override
