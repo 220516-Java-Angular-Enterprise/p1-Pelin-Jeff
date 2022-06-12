@@ -1,48 +1,97 @@
 package com.revature.ers.servlets;
 
-import java.io.FileReader;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.revature.ers.dtos.requests.NewUserRequest;
+import com.revature.ers.dtos.responses.Principal;
+import com.revature.ers.models.User;
+import com.revature.ers.services.TokenService;
+import com.revature.ers.services.UserService;
+import com.revature.ers.util.annotations.Inject;
+import com.revature.ers.util.custom_exceptions.InvalidRequestException;
+import com.revature.ers.util.custom_exceptions.ResourceConflictException;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.util.Properties;
+import java.util.Arrays;
+import java.util.List;
 
-public class ConnectionFactory {
-    private static ConnectionFactory connectionFactory;
+public class UserServlet extends HttpServlet {
+    @Inject
+    private final ObjectMapper mapper;
+    private final UserService userService;
 
-    static {
+    private final TokenService tokenService;
+
+    @Inject
+    public UserServlet(ObjectMapper mapper, UserService userService, TokenService tokenService) {
+        this.mapper = mapper;
+        this.userService = userService;
+        this.tokenService = tokenService;
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
-            Class.forName("org.postgresql.Driver");
-        } catch (ClassNotFoundException e) {
+            NewUserRequest userRequest = mapper.readValue(req.getInputStream(), NewUserRequest.class);
+            String[] uris = req.getRequestURI().split("/");
+
+            if (uris.length == 4 && uris[3].equals("username")) {
+                Principal requester = tokenService.extractRequesterDetails(req.getHeader("Authorization"));
+
+                if (requester == null) {
+                    resp.setStatus(401); // UNAUTHORIZED
+                    return;
+                }
+
+                if (!requester.getRole().equals("ADMIN")) {
+                    resp.setStatus(403); // FORBIDDEN
+                    return;
+                }
+
+                if (userRequest.getUsername().equals("")) {
+                    resp.setStatus(404);
+                    return;
+                }
+
+                List<User> users = userService.getUserByUsername(userRequest.getUsername());
+                resp.setContentType("application/json");
+                resp.getWriter().write(mapper.writeValueAsString(users));
+                return;
+            }
+
+            User createdUser = userService.register(userRequest);
+            resp.setStatus(201); // CREATED
+            resp.setContentType("application/json");
+            resp.getWriter().write(mapper.writeValueAsString(createdUser.getId()));
+        } catch (InvalidRequestException e) {
+            resp.setStatus(404); // BAD REQUEST
+        } catch (ResourceConflictException e) {
+            resp.setStatus(409); // RESOURCE CONFLICT
+        } catch (Exception e) {
             e.printStackTrace();
+            resp.setStatus(500);
         }
     }
 
-    private Properties props = new Properties();
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        Principal requester = tokenService.extractRequesterDetails(req.getHeader("Authorization"));
 
-    private ConnectionFactory() {
-        try {
-            props.load(new FileReader("src/main/resources/db.properties"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static ConnectionFactory getInstance() {
-        if (connectionFactory == null) {
-            connectionFactory = new ConnectionFactory();
-        }
-        return connectionFactory;
-    }
-
-    public Connection getConnection() throws SQLException {
-
-        Connection conn = DriverManager.getConnection(props.getProperty("url"), props.getProperty("username"), props.getProperty("password"));
-
-        if (conn == null) {
-            throw new RuntimeException("Could not establish connection with the database!");
+        if (requester == null) {
+            resp.setStatus(401); // UNAUTHORIZED
+            return;
         }
 
-        return conn;
+        if (!requester.getRole().equals("ADMIN")) {
+            resp.setStatus(403); // FORBIDDEN
+            return;
+        }
+
+        List<User> users = userService.getAllUsers();
+        resp.setContentType("application/json");
+        resp.getWriter().write(mapper.writeValueAsString(users));
     }
 }
